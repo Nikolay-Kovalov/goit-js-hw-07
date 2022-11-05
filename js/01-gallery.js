@@ -28,11 +28,14 @@ function showBigImage(evt) {
     />`);
   instance.show()
 
-  document.addEventListener('keydown', (evt) => {
+  document.addEventListener('keydown', onEscClose)
+    function onEscClose (evt) {
     if (evt.code === "Escape") {
       instance.close();
+      document.removeEventListener('keydown', onEscClose)
     };
-  });
+  
+  };
 }
 
 
